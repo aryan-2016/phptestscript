@@ -56,11 +56,11 @@ if(!file_exists('./modules/' . $page))
 }
 
 // Include the header file:
-include('./includes/header.html');
+include('./includes/header.inc.html');
 
 // Include the content-specific module:
 // $page is determined from the above switch.
 include('./modules/' . $page);
 
 // Include the footer file to complete the template:
-include('./includes/footer.html');
+include('./includes/footer.inc.html');
