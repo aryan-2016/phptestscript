@@ -1,6 +1,6 @@
 <?php
 // Errors are emailed here:
-$contact_email = 'address@example.com';
+$contact_email = '';
 
 // Determine whether we're working on a local server
 $host = substr($_SERVER['HTTP_HOST'], 0, 5);
@@ -27,9 +27,9 @@ if($local)
 }
 else
 {
-	define('BASE_URI', '/path/to/live/html/folder/');
-	define('BASE_URL', 'http://www.xyz.com/');
-	define('DB', '/path/to/live/mysql.inc.php');
+	define('BASE_URI', '/');
+	define('BASE_URL', 'https://phptestscript.herokuapp.com/');
+	define('DB', 'DbPdoClass.class.php');
 }
 
 /*
