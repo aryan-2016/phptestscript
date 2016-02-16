@@ -1,11 +1,11 @@
 <?php
 class DbPdoClass
 {
-	private $dbHost;
-	private $dbUserName;
-	private $dbPassword;
-	private $dbName;
-	private $dbPort;
+	private $dbHost = 'ec2-54-225-215-233.compute-1.amazonaws.com';
+	private $dbUserName = 'nqdnablyxgieuj';
+	private $dbPassword = 'sQ-7YLmKlugulMCY9RLM7Jg6O1';
+	private $dbName = 'da8pn1bn2vbs8m';
+	private $dbPort = '5432';
 	private $dbConnection;
 	private $dbStatement;
 	
