@@ -22,7 +22,7 @@ class DbPdoClass
 			$this->dbConnection = new PDO($dsn);*/
 			
 			$this->dbConnection = new PDO('pgsql:dbname=da8pn1bn2vbs8m;host=ec2-54-225-215-233.compute-1.amazonaws.com;port=5432;user=nqdnablyxgieuj;password=sQ-7YLmKlugulMCY9RLM7Jg6O1');
-			//$this->dbConnection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling
+			$this->dbConnection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling
 		}
 		catch(Exception $ex)
 		{
