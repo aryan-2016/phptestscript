@@ -13,8 +13,8 @@ if(!defined('BASE_URL'))
 	header("Location : $url");
 	exit;
 }
-echo '<br>coming...';
-include('../includes/DbPdoClass.class.php');
+/*echo '<br>coming...';
+include('../includes/DbPdoClass.class.php');*/
 echo '<br>c1...';
 $db = new DbPdoClass();echo '<br>c2...';
 $db->prepareQuery('INSERT INTO users (user_name, user_password) VALUES (:user_name, :user_password)');echo '<br>c3...';
