@@ -15,6 +15,10 @@ $db = new DbPdoClass();
 
 try 
 {
+	$db->prepareQuery('DROP TABLE users');
+	$db->executeQuery();
+	echo '<br>table droped';
+	
 	$db->prepareQuery('CREATE TABLE users(id SERIAL NOT NULL, user_name character varying(20) NOT NULL, user_password character varying(20) NOT NULL, CONSTRAINT users_pkey PRIMARY KEY (id))');
 	$db->executeQuery();
 	echo '<br>table created';
