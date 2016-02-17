@@ -7,11 +7,14 @@
  * the templates, and any content-specific modules.
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Require the configuration file before any PHP code:
-require('./includes/config.inc.php');
+require('/app/includes/config.inc.php');
 
 // the db file:
-require('./includes/DbPdoClass.class.php');
+require('/app/includes/DbPdoClass.class.php');
 
 // Validate what page to show:
 if(isset($_GET['p']))
@@ -52,18 +55,18 @@ switch($p)
 }
 
 // Make sure the file exists:
-if(!file_exists('./modules/' . $page))
+if(!file_exists('/app/modules/' . $page))
 {
 	$page = 'main.inc.php';
 	$page_title = 'Site Home Page';
 }
 
 // Include the header file:
-include('./includes/header.inc.html');
+include('/app/includes/header.inc.html');
 
 // Include the content-specific module:
 // $page is determined from the above switch.
-include('./modules/' . $page);
+include('/app/modules/' . $page);
 
 // Include the footer file to complete the template:
-include('./includes/footer.inc.html');
+include('/app/includes/footer.inc.html');
