@@ -42,62 +42,58 @@ try
 	
 	// google map integration
 	$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
-			  ID int AUTO_INCREMENT,
-			  PRIMARY KEY (ID),
-			  centerLat decimal (5,3),
-			      centerLong decimal (6,3),
-			      zoom  tinyint
-			  );';
-	$db->prepareQuery();
+							ID int AUTO_INCREMENT,
+							PRIMARY KEY (ID),
+							centerLat decimal (5,3),
+							centerLong decimal (6,3),
+							zoom  tinyint
+						);';
+	$db->prepareQuery($createmaptable);
 	$db->executeQuery();
-	echo '<br>';
-			  
+	echo '<br>maptable created';
+	
 	$createmappointtable = 'CREATE TABLE IF NOT EXISTS mappoints (
-				  ID int AUTO_INCREMENT,
-				  PRIMARY KEY (ID),
-				      mapID int, 
-				  pointLat decimal (5,3),
-				      pointLong decimal (6,3),
-				      pointText text
-				  );';
-	$db->prepareQuery();
+								ID int AUTO_INCREMENT,
+								PRIMARY KEY (ID),
+								mapID int, 
+								pointLat decimal (5,3),
+								pointLong decimal (6,3),
+								pointText text
+							);';
+	$db->prepareQuery($createmappointtable);
 	$db->executeQuery();
-	echo '<br>';
-				  
+	echo '<br>mappointtable created';
+	
 	$maps = array(
-	  array(1, 45.52, -122.682, 9), 
-	  array(2, -33.98, 18.424, 10), 
-	  array(3, 57.48, -4.225, 12)
-	); 
+					array(1, 45.52, -122.682, 9), 
+					array(2, -33.98, 18.424, 10), 
+					array(3, 57.48, -4.225, 12)
+				); 
 	 
 	$mappoints = array(
-	  array(1, 45.249, -122.897, "Champoeg State Park"), 
-	  array(1, 45.374, -121.696, "Mount Hood"), 
-	  array(2, -33.807, 18.366, "Robben Island"), 
-	  array(2, -33.903, 18.411, "Cape Town Stadium"), 
-	  array(3, 57.481, -4.225, "Inverness Bus Station"), 
-	  array(3, 57.476, -4.226, "Inverness Castle"), 
-	  array(3, 57.487, -4.139, "The Barn Church") 
-	);
+						  array(1, 45.249, -122.897, "Champoeg State Park"), 
+						  array(1, 45.374, -121.696, "Mount Hood"), 
+						  array(2, -33.807, 18.366, "Robben Island"), 
+						  array(2, -33.903, 18.411, "Cape Town Stadium"), 
+						  array(3, 57.481, -4.225, "Inverness Bus Station"), 
+						  array(3, 57.476, -4.226, "Inverness Castle"), 
+						  array(3, 57.487, -4.139, "The Barn Church") 
+					);
 	 
-	foreach ($maps as $ind) {
-	  $newline = "INSERT INTO maps 
-	    (ID, centerLat, centerLong, zoom) 
-	    VALUES ($ind[0], $ind[1], $ind[2], $ind[3])";
-	 
-		  $db->prepareQuery();
+	foreach ($maps as $ind) 
+	{
+		$newline = "INSERT INTO maps (ID, centerLat, centerLong, zoom) VALUES ($ind[0], $ind[1], $ind[2], $ind[3])";
+		$db->prepareQuery($newline);
 		$db->executeQuery();
-		echo '<br>';
+		echo '<br>maps record inserted';
 	}
 	 
-	foreach ($mappoints as $indpt) {
-	  $newline = "INSERT INTO mappoints 
-	    (mapID, pointLat, pointLong, pointText) 
-	    VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
-	 
-	  $db->prepareQuery();
-	$db->executeQuery();
-	echo '<br>';
+	foreach ($mappoints as $indpt) 
+	{
+		$newline = "INSERT INTO mappoints (mapID, pointLat, pointLong, pointText) VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
+		$db->prepareQuery($newline);
+		$db->executeQuery();
+		echo '<br>mappoints record inserted';
 	}
 } 
 catch(PDOException $e) 
