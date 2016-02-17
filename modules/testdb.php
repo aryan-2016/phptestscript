@@ -30,7 +30,7 @@ try
 	$db->executeQuery();
 	echo '<br>lastInsertId=' . $db->lastInsertId();*/
 	
-	$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
+	/*$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
 	$db->bindQueryValue(':user_name', 'John');
 	//$db->prepareQuery("SELECT user_name, user_password FROM users WHERE user_name = 'John'");
 	$row = $db->fetchSingleRow();
@@ -38,7 +38,67 @@ try
 	echo "<br>row=<pre>";
 	print_r($row);
 	//var_dump($rows);
-	echo "</pre>";
+	echo "</pre>";*/
+	
+	// google map integration
+	$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
+			  ID int AUTO_INCREMENT,
+			  PRIMARY KEY (ID),
+			  centerLat decimal (5,3),
+			      centerLong decimal (6,3),
+			      zoom  tinyint
+			  );';
+	$db->prepareQuery();
+	$db->executeQuery();
+	echo '<br>';
+			  
+	$createmappointtable = 'CREATE TABLE IF NOT EXISTS mappoints (
+				  ID int AUTO_INCREMENT,
+				  PRIMARY KEY (ID),
+				      mapID int, 
+				  pointLat decimal (5,3),
+				      pointLong decimal (6,3),
+				      pointText text
+				  );';
+	$db->prepareQuery();
+	$db->executeQuery();
+	echo '<br>';
+				  
+	$maps = array(
+	  array(1, 45.52, -122.682, 9), 
+	  array(2, -33.98, 18.424, 10), 
+	  array(3, 57.48, -4.225, 12)
+	); 
+	 
+	$mappoints = array(
+	  array(1, 45.249, -122.897, "Champoeg State Park"), 
+	  array(1, 45.374, -121.696, "Mount Hood"), 
+	  array(2, -33.807, 18.366, "Robben Island"), 
+	  array(2, -33.903, 18.411, "Cape Town Stadium"), 
+	  array(3, 57.481, -4.225, "Inverness Bus Station"), 
+	  array(3, 57.476, -4.226, "Inverness Castle"), 
+	  array(3, 57.487, -4.139, "The Barn Church") 
+	);
+	 
+	foreach ($maps as $ind) {
+	  $newline = "INSERT INTO maps 
+	    (ID, centerLat, centerLong, zoom) 
+	    VALUES ($ind[0], $ind[1], $ind[2], $ind[3])";
+	 
+		  $db->prepareQuery();
+		$db->executeQuery();
+		echo '<br>';
+	}
+	 
+	foreach ($mappoints as $indpt) {
+	  $newline = "INSERT INTO mappoints 
+	    (mapID, pointLat, pointLong, pointText) 
+	    VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
+	 
+	  $db->prepareQuery();
+	$db->executeQuery();
+	echo '<br>';
+	}
 } 
 catch(PDOException $e) 
 {
