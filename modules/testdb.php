@@ -1,7 +1,4 @@
 <?php
-/*error_reporting(E_ALL);
-ini_set('display_errors', 1);*/
-
 // Redirect if this page was accessed directly:
 if(!defined('BASE_URL'))
 {
@@ -13,16 +10,27 @@ if(!defined('BASE_URL'))
 	header("Location : $url");
 	exit;
 }
-/*echo '<br>coming...';
-include('../includes/DbPdoClass.class.php');*/
-echo '<br>c1...';
-$db = new DbPdoClass();echo '<br>c2...';
-$db->prepareQuery('INSERT INTO users (user_name, user_password) VALUES (:user_name, :user_password)');echo '<br>c3...';
-$db->bindQueryValue(':user_name', 'John');echo '<br>c4...';
-$db->bindQueryValue(':user_password', 'Smith');
-$db->executeQuery();echo '<br>c5...';
-echo '<br>lastInsertId=' . $db->lastInsertId();echo '<br>c6...';
-$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');echo '<br>c7...';
-$db->bindQueryValue(':user_name', 'John');
-$row = $db->fetchSingleRow();echo '<br>c8...';
-echo "<br>row=<pre>";print_r($row);echo "</pre>";
+
+$db = new DbPdoClass();
+
+try 
+{
+	$db->prepareQuery('create table users(id INT NOT NULL, user_name character varying(20) NOT NULL, user_password character varying(20) NOT NULL, CONSTRAINT user_pkey PRIMARY KEY (id))');
+	$db->executeQuery();
+	echo '<br>table created';
+	
+	/*$db->prepareQuery('INSERT INTO users (user_name, user_password) VALUES (:user_name, :user_password)');
+	$db->bindQueryValue(':user_name', 'John');
+	$db->bindQueryValue(':user_password', 'Smith');
+	$db->executeQuery();
+	echo '<br>lastInsertId=' . $db->lastInsertId();
+	
+	$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
+	$db->bindQueryValue(':user_name', 'John');
+	$row = $db->fetchSingleRow();
+	echo "<br>row=<pre>";print_r($row);echo "</pre>";*/
+} 
+catch(PDOException $e) 
+{
+    echo 'error: ' . $e->getMessage();
+}
