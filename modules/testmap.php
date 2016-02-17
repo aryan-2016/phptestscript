@@ -20,12 +20,12 @@ $lat = 0;
 $long = 0;
 $zoom = 8;
  
-$findmap = "SELECT centerLat, centerLong, zoom FROM maps WHERE ID = $id";
+$findmap = "SELECT center_lat, center_long, zoom FROM maps WHERE id=$id";
 $db->prepareQuery($findmap);
 $row = $db->fetchSingleRow();
 echo "<br>row=<pre>";print_r($row);echo "</pre>";
-$lat = $row['centerLat'];
-$long = $row['centerLong'];
+$lat = $row['center_lat'];
+$long = $row['center_long'];
 $zoom = $row['zoom'];	
 ?>
 <!DOCTYPE html>
@@ -47,17 +47,17 @@ $zoom = $row['zoom'];
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 		<?php
-			$getpoints = "SELECT pointLat, pointLong, pointText FROM mappoints WHERE mapID = $id";		 
+			$getpoints = "SELECT point_lat, point_long, point_text FROM mappoints WHERE map_id = $id";		 
 			$db->prepareQuery($findmap);
 			$rows = $db->fetchResultset();
 			foreach($rows as $row) 
 			{
 			  echo 'var myLatlng1 = new google.maps.LatLng('.
-					$row[pointLat].', '.$row[pointLong].'); 
+					$row[point_lat].', '.$row[point_long].'); 
 					var marker1 = new google.maps.Marker({ 
 					position: myLatlng1, 
 					map: map, 
-					title:"'.$row[pointText].'"
+					title:"'.$row[point_text].'"
 				});';
 			}
 		?>
