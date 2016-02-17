@@ -10,6 +10,9 @@
 // Require the configuration file before any PHP code:
 require('./includes/config.inc.php');
 
+// the db file:
+require('./includes/DbPdoClass.class.php');
+
 // Validate what page to show:
 if(isset($_GET['p']))
 {
