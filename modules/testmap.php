@@ -47,19 +47,19 @@ $zoom = $row['zoom'];
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 		<?php
-			$getpoints = "SELECT point_lat, point_long, point_text FROM mappoints WHERE map_id = $id";		 
+			/*$getpoints = "SELECT point_lat, point_long, point_text FROM mappoints WHERE map_id = $id";		 
 			$db->prepareQuery($getpoints);
 			$rows = $db->fetchResultset();
 			foreach($rows as $row) 
 			{
 			  echo 'var myLatlng1 = new google.maps.LatLng('.
-					$row[point_lat].', '.$row[point_long].'); 
+					$row['point_lat'].', '.$row['point_long'].'); 
 					var marker1 = new google.maps.Marker({ 
 					position: myLatlng1, 
 					map: map, 
-					title:"'.$row[point_text].'"
+					title:"'.$row['point_text'].'"
 				});';
-			}
+			}*/
 		?>
       }
       google.maps.event.addDomListener(window, 'load', initialize);
