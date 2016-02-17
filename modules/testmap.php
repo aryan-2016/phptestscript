@@ -14,7 +14,7 @@ if(!defined('BASE_URL'))
 $db = new DbPdoClass();
 
 $apikey = "AIzaSyBdXbZEsLOkQmuHpIJrEIeEg3l07fJPwO8";
-$id = $_GET['id'];
+$id = 1; //$_GET['id'];
   
 $lat = 0;
 $long = 0;
