@@ -38,8 +38,7 @@ if(isset($_GET['terms']) && ($_GET['terms'] != 'search...'))
 	// Print the results:
 	for($i = 1; $i <= 10; $i++)
 	{
-		echo <<<EOT
-		<h4><a href="#">Search Result #$i</a></h4>
+		echo <<<EOT<h4><a href="#">Search Result #$i</a></h4>
 		<p>This is some description. This is some description. This is some description.
 		This is some description.</p>
 		EOT;
