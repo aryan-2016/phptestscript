@@ -48,7 +48,7 @@ $zoom = $row['zoom'];
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 		<?php
 			$getpoints = "SELECT point_lat, point_long, point_text FROM mappoints WHERE map_id = $id";		 
-			$db->prepareQuery($findmap);
+			$db->prepareQuery($getpoints);
 			$rows = $db->fetchResultset();
 			foreach($rows as $row) 
 			{
