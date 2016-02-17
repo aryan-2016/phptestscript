@@ -23,7 +23,7 @@ class DbPdoClass
 		}
 		catch(Exception $ex)
 		{
-			return "error: connection failed" . $ex->getMessage();
+			die("error: connection failed" . $ex->getMessage());
 		}
 	}
 	
