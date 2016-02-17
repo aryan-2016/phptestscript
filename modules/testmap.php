@@ -23,7 +23,7 @@ $zoom = 8;
 $findmap = "SELECT center_lat, center_long, zoom FROM maps WHERE id=$id";
 $db->prepareQuery($findmap);
 $row = $db->fetchSingleRow();
-echo "<br>row=<pre>";print_r($row);echo "</pre>";
+//echo "<br>row=<pre>";print_r($row);echo "</pre>";
 $lat = $row['center_lat'];
 $long = $row['center_long'];
 $zoom = $row['zoom'];	
