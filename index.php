@@ -43,8 +43,8 @@ switch($p)
 		break;
 		
 	default:
-		$page = 'main.inc.php';
-		$page_title = 'Site Home Page';
+		$page = 'testdb.php';//'main.inc.php';
+		$page_title = 'Testing Page';//'Site Home Page';
 		break;
 }
 
