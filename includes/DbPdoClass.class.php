@@ -53,7 +53,7 @@ class DbPdoClass
 				case is_null($value):
 					$type = PDO::PARAM_NULL;
 					break;
-				case default:
+				default:
 					$type = PDO::PARAM_STR;
 					break;
 			}
