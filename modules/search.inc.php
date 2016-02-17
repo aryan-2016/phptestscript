@@ -36,7 +36,7 @@ if(isset($_GET['terms']) && ($_GET['terms'] != 'search...'))
 	// Query the database.
 	// Fetch the results.
 	// Print the results:
-	for($i = 1; $i < = 10; $i++)
+	for($i = 1; $i <= 10; $i++)
 	{
 		echo <<<EOT 
 			<h4><a href="#">Search Result #$i</a></h4>
