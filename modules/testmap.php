@@ -34,7 +34,7 @@ $zoom = $row['zoom'];
       #map-canvas { height: 100% }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&sensor=false&callback=initialize"></script>
     <script type="text/javascript">
       function initialize() 
 	  {
@@ -61,5 +61,5 @@ $zoom = $row['zoom'];
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 <div style="height:100%; width:100%;">
-    <div id="map-canvas"/>  
+    <div id="map-canvas"></div>  
 </div>
