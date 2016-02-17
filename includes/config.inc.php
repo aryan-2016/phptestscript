@@ -27,7 +27,7 @@ if($local)
 }
 else
 {
-	define('BASE_URI', '/');
+	define('BASE_URI', 'app/');
 	define('BASE_URL', 'https://phptestscript.herokuapp.com/');
 	define('DB', 'DbPdoClass.class.php');
 }
