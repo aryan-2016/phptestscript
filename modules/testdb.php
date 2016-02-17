@@ -42,32 +42,32 @@ try
 	
 	// google map integration
 	$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
-							ID int AUTO_INCREMENT,
-							PRIMARY KEY (ID),
-							centerLat decimal (5,3),
-							centerLong decimal (6,3),
-							zoom  tinyint
+							id SERIAL,
+							center_lat numeric(5,3),
+							center_long numeric(6,3),
+							zoom  smallint,
+							CONSTRAINT maps_pkey PRIMARY KEY (id)
 						);';
 	$db->prepareQuery($createmaptable);
 	$db->executeQuery();
 	echo '<br>maptable created';
 	
 	$createmappointtable = 'CREATE TABLE IF NOT EXISTS mappoints (
-								ID int AUTO_INCREMENT,
-								PRIMARY KEY (ID),
-								mapID int, 
-								pointLat decimal (5,3),
-								pointLong decimal (6,3),
-								pointText text
+								id SERIAL,
+								map_id int, 
+								point_lat numeric(5,3),
+								point_long numeric(6,3),
+								point_text text,
+								CONSTRAINT mappoints_pkey PRIMARY KEY (id)
 							);';
 	$db->prepareQuery($createmappointtable);
 	$db->executeQuery();
 	echo '<br>mappointtable created';
 	
 	$maps = array(
-					array(1, 45.52, -122.682, 9), 
-					array(2, -33.98, 18.424, 10), 
-					array(3, 57.48, -4.225, 12)
+					array(45.52, -122.682, 9), 
+					array(-33.98, 18.424, 10), 
+					array(57.48, -4.225, 12)
 				); 
 	 
 	$mappoints = array(
@@ -82,7 +82,7 @@ try
 	 
 	foreach ($maps as $ind) 
 	{
-		$newline = "INSERT INTO maps (ID, centerLat, centerLong, zoom) VALUES ($ind[0], $ind[1], $ind[2], $ind[3])";
+		$newline = "INSERT INTO maps (center_lat, center_long, zoom) VALUES ($ind[1], $ind[2], $ind[3])";
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>maps record inserted';
@@ -90,7 +90,7 @@ try
 	 
 	foreach ($mappoints as $indpt) 
 	{
-		$newline = "INSERT INTO mappoints (mapID, pointLat, pointLong, pointText) VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
+		$newline = "INSERT INTO mappoints (map_id, point_lat, point_long, point-text) VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>mappoints record inserted';
