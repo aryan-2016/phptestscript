@@ -14,7 +14,7 @@ if(!defined('BASE_URL'))
 $db = new DbPdoClass();
 
 $apikey = "AIzaSyBdXbZEsLOkQmuHpIJrEIeEg3l07fJPwO8";
-$id = 1; //$_GET['id'];
+$id = 2; //$_GET['id'];
   
 $lat = 0;
 $long = 0;
@@ -23,8 +23,8 @@ $zoom = 8;
 $findmap = "SELECT center_lat, center_long, zoom FROM maps WHERE id=$id";
 $db->prepareQuery($findmap);
 $row = $db->fetchSingleRow();
-echo "<br>row=<pre>";print_r($row);echo "</pre>";
-$lat = $row['center_lat'];echo '<br>lat=' . $lat;	
+//echo "<br>row=<pre>";print_r($row);echo "</pre>";
+$lat = $row['center_lat'];	
 $long = $row['center_long'];
 $zoom = $row['zoom'];
 ?>
@@ -33,7 +33,7 @@ $zoom = $row['zoom'];
     <style type="text/css">      
       #map-canvas { height: 100% }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&sensor=false"></script>
     <script type="text/javascript">
       function initialize() 
