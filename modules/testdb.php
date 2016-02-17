@@ -27,8 +27,12 @@ try
 	
 	$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
 	$db->bindQueryValue(':user_name', 'John');
-	$row = $db->fetchSingleRow();
-	echo "<br>row=<pre>";print_r($row);echo "</pre>";
+	//$row = $db->fetchSingleRow();
+	$rows = $db->fetchResultset();
+	echo "<br>row=<pre>";
+	//print_r($row);
+	var_dump($rows);
+	echo "</pre>";
 } 
 catch(PDOException $e) 
 {
