@@ -14,7 +14,7 @@ if(!defined('BASE_URL'))
 $db = new DbPdoClass();
 
 $apikey = "AIzaSyBdXbZEsLOkQmuHpIJrEIeEg3l07fJPwO8";
-$id = 2; //$_GET['id'];
+$id = 1; //$_GET['id'];
   
 $lat = 0;
 $long = 0;
@@ -60,6 +60,6 @@ $zoom = $row['zoom'];
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-<div style="height:100%; width:100%;">
+<div style="height:100%; width:100%;position: absolute;">
     <div id="map-canvas"></div>  
 </div>
