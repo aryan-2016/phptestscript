@@ -78,7 +78,7 @@ try
 		echo '<br>maps record inserted';
 	}*/
 	 
-	$mappoints = array(
+	/*$mappoints = array(
 			  array(1, 45.249, -122.897, "Champoeg State Park"), 
 			  array(1, 45.374, -121.696, "Mount Hood"), 
 			  array(2, -33.807, 18.366, "Robben Island"), 
@@ -94,7 +94,7 @@ try
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>mappoints record inserted';
-	}
+	}*/
 } 
 catch(PDOException $e) 
 {
