@@ -33,6 +33,7 @@ $zoom = $row['zoom'];
     <style type="text/css">      
       #map-canvas { height: 100% }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&sensor=false"></script>
     <script type="text/javascript">
       function initialize() 
