@@ -60,6 +60,6 @@ $zoom = $row['zoom'];
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-<div style="height:80%; width:45%;position: absolute;">
+<div style="height:55%; width:45%;position: absolute;">
     <div id="map-canvas"></div>  
 </div>
