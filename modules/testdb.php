@@ -82,7 +82,7 @@ try
 	 
 	foreach ($maps as $ind) 
 	{
-		$newline = "INSERT INTO maps (center_lat, center_long, zoom) VALUES ($ind[1], $ind[2], $ind[3])";
+		$newline = "INSERT INTO maps (center_lat, center_long, zoom) VALUES ($ind[0], $ind[1], $ind[2])";
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>maps record inserted';
