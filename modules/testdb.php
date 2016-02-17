@@ -41,7 +41,7 @@ try
 	echo "</pre>";*/
 	
 	// google map integration
-	$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
+	/*$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
 							id SERIAL,
 							center_lat numeric(5,3),
 							center_long numeric(6,3),
@@ -62,35 +62,35 @@ try
 							);';
 	$db->prepareQuery($createmappointtable);
 	$db->executeQuery();
-	echo '<br>mappointtable created';
+	echo '<br>mappointtable created';*/
 	
-	$maps = array(
-					array(45.52, -122.682, 9), 
-					array(-33.98, 18.424, 10), 
-					array(57.48, -4.225, 12)
-				); 
-	 
-	$mappoints = array(
-						  array(1, 45.249, -122.897, "Champoeg State Park"), 
-						  array(1, 45.374, -121.696, "Mount Hood"), 
-						  array(2, -33.807, 18.366, "Robben Island"), 
-						  array(2, -33.903, 18.411, "Cape Town Stadium"), 
-						  array(3, 57.481, -4.225, "Inverness Bus Station"), 
-						  array(3, 57.476, -4.226, "Inverness Castle"), 
-						  array(3, 57.487, -4.139, "The Barn Church") 
-					);
-	 
+	/*$maps = array(
+			array(45.52, -122.682, 9), 
+			array(-33.98, 18.424, 10), 
+			array(57.48, -4.225, 12)
+		);
+				
 	foreach ($maps as $ind) 
 	{
 		$newline = "INSERT INTO maps (center_lat, center_long, zoom) VALUES ($ind[0], $ind[1], $ind[2])";
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>maps record inserted';
-	}
+	}*/
+	 
+	$mappoints = array(
+			  array(1, 45.249, -122.897, "Champoeg State Park"), 
+			  array(1, 45.374, -121.696, "Mount Hood"), 
+			  array(2, -33.807, 18.366, "Robben Island"), 
+			  array(2, -33.903, 18.411, "Cape Town Stadium"), 
+			  array(3, 57.481, -4.225, "Inverness Bus Station"), 
+			  array(3, 57.476, -4.226, "Inverness Castle"), 
+			  array(3, 57.487, -4.139, "The Barn Church") 
+			);
 	 
 	foreach ($mappoints as $indpt) 
 	{
-		$newline = "INSERT INTO mappoints (map_id, point_lat, point_long, point-text) VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
+		$newline = "INSERT INTO mappoints (map_id, point_lat, point_long, point_text) VALUES ($indpt[0], $indpt[1], $indpt[2], '$indpt[3]')";
 		$db->prepareQuery($newline);
 		$db->executeQuery();
 		echo '<br>mappoints record inserted';
