@@ -15,14 +15,14 @@ $db = new DbPdoClass();
 
 try 
 {
-	$db->prepareQuery('DROP TABLE users');
+	/*$db->prepareQuery('DROP TABLE users');
 	$db->executeQuery();
 	echo '<br>table droped';
 	
 	//$db->prepareQuery('CREATE TABLE users(id SERIAL NOT NULL, user_name character varying(20) NOT NULL, user_password character varying(20) NOT NULL, CONSTRAINT users_pkey PRIMARY KEY (id))');
 	$db->prepareQuery('CREATE TABLE users(id SERIAL NOT NULL, user_name character varying(128) NOT NULL, user_password character varying(128) NOT NULL, user_email character varying(128) NOT NULL, user_role character varying(64) NOT NULL, created_time timestamp DEFAULT current_timestamp, last_modified_time timestamp DEFAULT current_timestamp, status  smallint NOT NULL DEFAULT 1, CONSTRAINT users_pkey PRIMARY KEY (id))');
 	$db->executeQuery();
-	echo '<br>table created';
+	echo '<br>table created';*/
 	
 	/*$db->prepareQuery('INSERT INTO users (user_name, user_password) VALUES (:user_name, :user_password)');
 	$db->bindQueryValue(':user_name', 'John');
