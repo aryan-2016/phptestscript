@@ -31,15 +31,16 @@ try
 	$db->executeQuery();
 	echo '<br>lastInsertId=' . $db->lastInsertId();*/
 	
-	/*$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
-	$db->bindQueryValue(':user_name', 'John');
+	//$db->prepareQuery('SELECT user_name, user_password FROM users WHERE user_name = :user_name');
+	//$db->bindQueryValue(':user_name', 'John');
 	//$db->prepareQuery("SELECT user_name, user_password FROM users WHERE user_name = 'John'");
-	$row = $db->fetchSingleRow();
-	//$rows = $db->fetchResultset();
-	echo "<br>row=<pre>";
-	print_r($row);
+	$db->prepareQuery("SELECT * FROM users");
+	//$row = $db->fetchSingleRow();
+	$rows = $db->fetchResultset();
+	echo "<br>rows=<pre>";
+	print_r($rows);
 	//var_dump($rows);
-	echo "</pre>";*/
+	echo "</pre>";
 	
 	/*$db->prepareQuery('DELETE FROM users WHERE user_name = :user_name');
 	$db->bindQueryValue(':user_name', 'aryan');
