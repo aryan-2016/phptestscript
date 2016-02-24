@@ -41,6 +41,11 @@ try
 	//var_dump($rows);
 	echo "</pre>";*/
 	
+	$db->prepareQuery('DELETE FROM users WHERE user_name = :user_name');
+	$db->bindQueryValue(':user_name', 'aryan');
+	$db->executeQuery();
+	echo '<br>record deleted';
+	
 	// google map integration
 	/*$createmaptable = 'CREATE TABLE IF NOT EXISTS maps (
 							id SERIAL,
