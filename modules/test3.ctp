@@ -33,7 +33,7 @@ app.controller('customersCtrl', function($scope, $http) {
    /*$http.get("http://synapse.asia/zeto8223/api/getLabourList")
    .then(function (response) {$scope.names = response.data.data;});*/
    
-   $scope.names = <?php echo $channelOptions; ?>;
+   $scope.names = <?php echo $users; ?>;
    
    $scope.ConfirmDialog = function (name) {
          alert('name: '+ name);
