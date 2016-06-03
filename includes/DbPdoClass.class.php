@@ -1,11 +1,11 @@
 <?php
 class DbPdoClass
 {
-	private $dbHost; //= 'ec2-54-225-215-233.compute-1.amazonaws.com';
-	private $dbUserName; //= 'nqdnablyxgieuj';
-	private $dbPassword; //= 'sQ-7YLmKlugulMCY9RLM7Jg6O1';
-	private $dbName; //= 'da8pn1bn2vbs8m';
-	private $dbPort; //= '5432';
+	private $dbHost;
+	private $dbUserName;
+	private $dbPassword;
+	private $dbName;
+	private $dbPort;
 	private $dbConnection;
 	private $dbStatement;
 	
@@ -21,7 +21,7 @@ class DbPdoClass
 			$dsn = 'pgsql:host=' . $this->dbHost . ';port=' . $this->dbPort . ';dbname=' . $this->dbName . ';user=' . $this->dbUserName . ';password=' . $this->dbPassword;
 			$this->dbConnection = new PDO($dsn);*/
 			
-			$this->dbConnection = new PDO('pgsql:dbname=da8pn1bn2vbs8m;host=ec2-54-225-215-233.compute-1.amazonaws.com;port=5432;user=nqdnablyxgieuj;password=sQ-7YLmKlugulMCY9RLM7Jg6O1');
+			$this->dbConnection = new PDO('pgsql:dbname=;host=;port=5432;user=;password=');
 			$this->dbConnection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling
 		}
 		catch(Exception $ex)
